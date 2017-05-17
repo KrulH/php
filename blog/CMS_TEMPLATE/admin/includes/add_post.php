@@ -3,7 +3,7 @@
 <?php
 if(isset($_POST['create_post'])){
     $post_title = $_POST['title'];
-    $post_category_id = $_POST['post_category'];
+    $post_category_id = $_POST['post_category_id'];
     $post_author = $_POST['author'];
     $post_status = $_POST['post_status'];
     $post_image = $_FILES['image']['name'];

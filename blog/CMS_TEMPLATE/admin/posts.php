@@ -1,3 +1,4 @@
+<?php //ob_start(); ?>
 <?php include "includes/header.php";?>
 <div id="page-wrapper">
     <div class="container-fluid">
@@ -21,10 +22,11 @@
                     default:
                         include "includes/view_all.posts.php";
                 }
+
                 ?>
 
             </div>
         </div>
     </div>
 </div>
-<?php //include "includes/footer.php";?>
+<?php include "includes/footer.php";?>
