@@ -40,4 +40,11 @@ function deleteCategory(){
         header("Location: categories.php");
     }
 }
+
+function confirm($result) {
+    // function used to return error if there is a connection issue
+    global $connection;
+    if(!$result) {
+        die("Query Failed, " . mysqli_error($connection));
+    }}
 ?>

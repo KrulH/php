@@ -1,3 +1,5 @@
+<?php include $_SERVER['DOCUMENT_ROOT']."/blog/includes/db.php";?>
+<?php include "../functions.php";?>
 <?php
 if(isset($_POST['create_post'])){
     $post_title = $_POST['title'];
@@ -12,6 +14,16 @@ if(isset($_POST['create_post'])){
     $post_comment_count = 4;
 
     move_uploaded_file($post_image_temp, "../images/$post_image");
+
+    $query = "INSERT INTO posts(post_cat_id, post_title, post_auhor, post_date, post_image, post_content,
+       post_tags, post_comment_counts, post_status) ";
+    $query .= "VALUES({$post_category_id},'{$post_title}','{$post_author}',now(), '{$post_image}','{$post_content}',
+       '{$post_tags}', '{$post_comment_count}','{$post_status}')";
+
+
+    $create_post_query = mysqli_query($connection, $query);
+    confirm($create_post_query);
+    echo "<p class='bg-success'>Post Created: " . "<a href='post.php'>View Post</a></p>";
 }
 ?>
 <form action="" method="post" enctype="multipart/form-data">
@@ -21,9 +33,9 @@ if(isset($_POST['create_post'])){
     </div>
 
     <div class="form-group">
-        <label for="categories">Post Category</label>
-        <select name="post_category" class="form-control">
-        </select>
+        <label for="categories">Post Category Id</label>
+        <input type="text" name="post_category_id" class="form-control">
+
     </div>
 
     <div class="form-group">
