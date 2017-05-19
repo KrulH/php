@@ -25,7 +25,7 @@
         $post_status = $row["post_date"];
         $post_image = $row["post_image"];
         $post_content = $row["post_content"];
-        $post_comment_count = $row["post_comment_count"];
+        $post_comment_count = $row["post_comment_counts"];
         $post_tags = $row["post_tags"];
         echo "<tr>";
         echo "<td>{$post_id}</td>";
