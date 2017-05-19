@@ -23,7 +23,7 @@ if(isset($_POST['create_post'])){
 
     $create_post_query = mysqli_query($connection, $query);
     confirm($create_post_query);
-    echo "<p class='bg-success'>Post Created: " . "<a href='post.php'>View Post</a></p>";
+    echo "<p class='bg-success'>Post Created: " . "<a href='posts.php'>View Post</a></p>";
 }
 ?>
 <form action="" method="post" enctype="multipart/form-data">
