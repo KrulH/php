@@ -3,26 +3,30 @@
 
 
 
-    <!-- Navigation -->
+<!-- Navigation -->
 <?php include "../includes/nav.php";?>
 
-    <!-- Page Content -->
-    <div class="container">
+<!-- Page Content -->
+<div class="container">
 
-        <div class="row">
+    <div class="row">
 
-            <!-- Blog Entries Column -->
-            <div class="col-md-8">
-                <?php
-                $query = "SELECT * FROM posts";
-                $result = mysqli_query($connection, $query);
-                while($row = mysqli_fetch_assoc($result)){
-                    $post_id = $row["post_id"];
-                    $post_title = $row["post_title"];
-                    $post_auhor = $row["post_auhor"];
-                    $post_date = $row["post_date"];
-                    $post_content = substr($row["post_content"],0,50);
-                    $post_image = $row["post_image"];
+        <!-- Blog Entries Column -->
+        <div class="col-md-8">
+            <?php
+            if(isset($_GET['category'])){
+                $the_cat_id = $_GET['category'];
+            }
+            $query = "SELECT * FROM posts WHERE post_cat_id = $the_cat_id";
+          //  $query = "SELECT * FROM posts";
+            $result = mysqli_query($connection, $query);
+            while($row = mysqli_fetch_assoc($result)){
+                $post_id = $row["post_id"];
+                $post_title = $row["post_title"];
+                $post_auhor = $row["post_auhor"];
+                $post_date = $row["post_date"];
+                $post_content = substr($row["post_content"],0,50);
+                $post_image = $row["post_image"];
                 ?>
                 <h1 class="page-header">
                     Page Heading
@@ -45,15 +49,15 @@
 
                 <hr>
 
-                <?php } ?>
-            </div>
-
-            <!-- Blog Sidebar Widgets Column -->
-            <?php include "../includes/sidebar.php";?>
-
+            <?php } ?>
         </div>
-        <!-- /.row -->
 
-        <hr>
+        <!-- Blog Sidebar Widgets Column -->
+        <?php include "../includes/sidebar.php";?>
 
-        <?php include "../includes/footer.php";?>
+    </div>
+    <!-- /.row -->
+
+    <hr>
+
+    <?php include "../includes/footer.php";?>

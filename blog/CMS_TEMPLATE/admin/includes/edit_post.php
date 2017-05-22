@@ -64,9 +64,7 @@ if(isset($_POST['update_post'])) {
     </div>
 
     <div class="form-group">
-        <!--        <label for="categories">Post Category Id</label>-->
-        <!--        <input value="--><?php //echo $post_category_id;?><!--" type="text" name="post_category_id" class="form-control">
--->
+
         <select class="form-group" name="post_category"><?php
             $query = "SELECT * FROM category";
             $result = mysqli_query($connection, $query);
@@ -89,10 +87,6 @@ if(isset($_POST['update_post'])) {
         <label for="post_status">Post Status</label>
         <input value="<?php echo $post_status;?>" type="text" class="form-control" name="post_status">
     </div>
-
-<!--    <div class="form-group">-->
-<!--        <img src="../images/--><?php //echo $post_image;?><!--" width="100">-->
-<!--    </div>-->
 
     <div class="form-group">
         <label for="image">Post Image</label><br>

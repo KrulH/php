@@ -3,7 +3,7 @@
 <?php
 if(isset($_POST['create_post'])){
     $post_title = $_POST['title'];
-    $post_category_id = $_POST['post_category_id'];
+    $post_category_id = $_POST['post_category'];
     $post_author = $_POST['author'];
     $post_status = $_POST['post_status'];
     $post_image = $_FILES['image']['name'];
@@ -23,7 +23,7 @@ if(isset($_POST['create_post'])){
 
     $create_post_query = mysqli_query($connection, $query);
     confirm($create_post_query);
-    echo "<p class='bg-success'>Post Created: " . "<a href='posts.php'>View Post</a></p>";
+//    echo "<p class='bg-success'>Post Created: " . "<a href='posts.php'>View Post</a></p>";
 }
 ?>
 <form action="" method="post" enctype="multipart/form-data">
@@ -33,8 +33,17 @@ if(isset($_POST['create_post'])){
     </div>
 
     <div class="form-group">
-        <label for="categories">Post Category Id</label>
-        <input type="text" name="post_category_id" class="form-control">
+
+        <select class="form-group" name="post_category"><?php
+            $query = "SELECT * FROM category";
+            $result = mysqli_query($connection, $query);
+            confirm($result);
+            while($row = mysqli_fetch_assoc($result)){
+                $cat_title = $row["cat_title"];
+                $cat_id = $row["cat_id"];
+                echo "<option value='$cat_id'>{$cat_title}</option>";}
+            ?>
+            <select/>
 
     </div>
 
