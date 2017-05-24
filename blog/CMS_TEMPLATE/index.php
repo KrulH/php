@@ -23,6 +23,11 @@
                     $post_date = $row["post_date"];
                     $post_content = substr($row["post_content"],0,50);
                     $post_image = $row["post_image"];
+                    $post_status = $row["post_status"];
+                    if($post_status !== 'published'){
+                      echo " <h1>NO Post Sorry</h1>";
+                        break;
+                    }else{
                 ?>
                 <h1 class="page-header">
                     Page Heading
@@ -45,7 +50,7 @@
 
                 <hr>
 
-                <?php } ?>
+                <?php }} ?>
             </div>
 
             <!-- Blog Sidebar Widgets Column -->

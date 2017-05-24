@@ -1,8 +1,5 @@
 <?php include "../includes/db.php";?>
 <?php include "../includes/header.php";?>
-
-
-
 <!-- Navigation -->
 <?php include "../includes/nav.php";?>
 
@@ -65,7 +62,7 @@
                     die("Query Failed: " . mysqli_error($connection));
                 }
                 // Query to increment comment count each time a comment is added
-                $query = "UPDATE posts SET post_comment_count = post_comment_count + 1 ";
+                $query = "UPDATE posts SET post_comment_counts = post_comment_counts + 1 ";
                 $query .= "WHERE post_id = {$the_post_id} ";
                 $increment_comment_count = mysqli_query($connection,$query);
             }
